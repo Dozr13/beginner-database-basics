@@ -1,5 +1,151 @@
 <img src="https://s3.amazonaws.com/devmountain/readme-logo.png" width="250" align="right">
 
+
+
+#### Table – Person ####
+
+1.  CREATE TABLE person ( person_id SERIAL PRIMARY KEY,
+                     name VARCHAR(200),
+                     age INTEGER,
+                     height INTEGER,
+                     city VARCHAR(200),
+                     favorite_color VARCHAR(200) );
+
+2.  INSERT INTO person ( name, age, height, city, favorite_color )
+VALUES
+( 'Wade Pate', 29, 188, 'Dickinson', 'Red' ),
+( 'Samantha Pate', 28, 170, 'Dickinson', 'Green' ),
+( 'Emberly Pate', 1, 73, 'Dickinson', 'Yellow' ),
+( 'Tracy Pate', 59, 170, 'Aurora', 'Blue' ),
+( 'Jim Pate', 55, 189, 'Littleton', 'Black' );
+
+3.  SELECT * FROM person
+ORDER BY height DESC;
+
+4 SELECT * FROM person
+ORDER BY height ASC;
+
+5.  SELECT * FROM person
+ORDER BY age DESC;
+
+6.  SELECT * FROM person
+WHERE age > 20;
+
+7.  SELECT * FROM person
+WHERE age = 18;
+
+8.  SELECT * FROM person
+WHERE age < 20 OR age > 30;
+
+9.  SELECT * FROM person
+WHERE age != 27;
+
+10.  SELECT * FROM person
+WHERE favorite_color != 'Red';
+
+11.  SELECT * FROM person
+WHERE favorite_color != 'Red' AND favorite_color != 'Blue';
+
+12.  SELECT * FROM person
+WHERE favorite_color = 'Orange' OR favorite_color = 'Green';
+
+13.  SELECT * FROM person
+WHERE favorite_color IN ('Orange', 'Green', 'Blue');
+
+
+14.  SELECT * FROM person
+WHERE favorite_color IN ('Yellow', 'Purple');
+
+
+
+
+
+
+#### Table – orders ####
+
+1.  CREATE TABLE orders ( order_id SERIAL PRIMARY KEY, person_id INTEGER,
+                     product_name VARCHAR(200),
+                     product_price NUMERIC,
+                     quantity INTEGER );
+
+
+2.  INSERT INTO orders ( person_id, product_name, product_price, quantity )
+VALUES ( 1, 'KX-250', 8500.50, 1 ),
+( 2, 'Cheese Wheel', 30, 2 ),
+( 3, 'Pudding Cup', 45.99, 3 ),
+( 0, 'Spaceship', 500000.67, 50),
+( 4, 'Skateboard', 120, 1 );
+
+3.  SELECT * from orders;
+
+4.  SELECT sum( quantity) from orders;
+
+5.  SELECT sum( product_price * quantity ) from orders;
+
+6.  SELECT SUM(product_price * quantity) FROM orders WHERE person_id = 2;
+
+
+#### Table- artist ####
+
+1.  INSERT INTO artist ( name )
+VALUES 
+( 'KoRn' ),
+( 'GAWNE' ),
+( 'MESUS' );
+
+2.  SELECT * FROM artist ORDER BY name DESC LIMIT 10;
+
+3.  SELECT * FROM artist ORDER BY name ASC LIMIT 5;
+
+4.  SELECT * FROM artist WHERE name LIKE 'Black%';
+
+5.  SELECT * FROM artist WHERE name LIKE '%Black%';
+#### Table- employee ####
+
+1.	 SELECT first_name, last_name FROM employee 
+WHERE city = 'Calgary';
+
+2.	SELECT MAX( birth_date ) FROM employee;
+
+3.	 SELECT MIN( birth_date ) FROM employee;
+
+4.	SELECT * FROM employee;
+
+SELECT * FROM employee WHERE reports_to = 2;
+
+5.	SELECT COUNT( * ) FROM employee WHERE city = 'Lethbridge';
+
+
+#### Table- invoice ####
+
+1.	SELECT COUNT( * ) FROM invoice WHERE billing_country = 'USA';
+
+2.	SELECT MAX( total ) FROM invoice;
+
+3.	SELECT MIN( total ) FROM invoice;
+
+4.	SELECT total FROM invoice
+WHERE total > 5
+
+5.	SELECT total FROM invoice
+WHERE total < 5
+
+6.	SELECT COUNT( * ) FROM invoice WHERE billing_state IN ('CA', 'TX', 'AZ');
+
+7.	SELECT AVG( total ) FROM invoice;
+
+8.	SELECT SUM( total ) FROM invoice;
+Added 
+
+
+
+
+
+
+
+
+
+
 # Project Summary
 
 In this project we will be practicing inserting and querying data using SQL. We'll make use of a handy online tool provided by DevMountain that will allow us to write SQL in your browser. [Click Me](https://postgres.devmountain.com/)
